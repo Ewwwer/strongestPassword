@@ -10,10 +10,17 @@ def copy_text ():
 
 ventana = tk.Tk()
 ventana.title ("Generateur mot de pass")
-ventana.geometry("650x150")
+#ventana.geometry("650x150")
 greeting = tk.Label(ventana,text=password.result_psw, relief="flat",takefocus=0,highlightthickness=0)
 greeting.config(font=("Courier", 80))
-greeting.pack()
+greeting.grid(row=0, column=0)
+
+def refresh():
+    psw = password.get_new_psw()
+    greeting.config(text=psw)
+
+refresh_button = tk.Button(ventana, text="Refresh", command=refresh)
+refresh_button.grid(row=1, column=1)
 
 # button3 = tk.Button (ventana, text = "Copier le mot de pass", font = ("Meiryo UI", 18), command = copy_text)
 # button3.pack (expand = 1)
